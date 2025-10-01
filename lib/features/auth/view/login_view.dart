@@ -5,6 +5,7 @@ import 'package:hungry/core/constants/app_colors.dart';
 import 'package:hungry/shared/custom_text.dart';
 
 import '../../../shared/custom_text_field.dart';
+import '../widget/custom_auth_btn.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -45,30 +46,14 @@ class LoginView extends StatelessWidget {
                     controller: passwordController,
                   ),
                   Gap(30),
-                  GestureDetector(
+                  CustomAuthBtn(
+                    text: 'Login',
+                    formKey: _formKey,
                     onTap: () {
                       if (_formKey.currentState!.validate()) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Processing Data')),
-                        );
+                        print('Login Success');
                       }
                     },
-                    child: Container(
-                      width: double.infinity,
-                      height: 55,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: const Center(
-                        child: CustomText(
-                          text: "Login",
-                          size: 15,
-                          color: AppColors.primary,
-                          weight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
                   ),
                 ],
               ),
