@@ -31,6 +31,7 @@ class LoginView extends StatelessWidget {
                   const Gap(10),
                   const CustomText(
                     text: "Welcome Back, Discover the best food",
+                    color: Colors.white,
                     size: 13,
                   ),
                   Gap(70),

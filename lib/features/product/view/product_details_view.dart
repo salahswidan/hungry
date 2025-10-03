@@ -85,9 +85,9 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      CustomText(text: "Total", size: 20),
+                      CustomText(text: "Total", size: 15),
 
-                      CustomText(text: "\$ 18.9", size: 27),
+                      CustomText(text: "\$ 18.9", size: 24),
                     ],
                   ),
                   CustomButton(text: "Add To Cart", onTap: () {}),
