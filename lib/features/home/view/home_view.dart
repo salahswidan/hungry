@@ -5,6 +5,7 @@ import 'package:hungry/features/home/widget/card_item.dart';
 import 'package:hungry/features/home/widget/food_category.dart';
 import 'package:hungry/features/home/widget/search_field.dart';
 import 'package:hungry/features/home/widget/user_header.dart';
+import 'package:hungry/features/product/view/product_details_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -62,11 +63,21 @@ class _HomeViewState extends State<HomeView> {
                   context,
                   index,
                 ) {
-                  return CardItem(
-                    image: 'assets/product/p1.png',
-                    title: 'Cheese Burger',
-                    desc: "Wendy's Burger",
-                    rate: '4.5',
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ProductDetailsView(),
+                        ),
+                      );
+                    },
+                    child: CardItem(
+                      image: 'assets/product/p1.png',
+                      title: 'Cheese Burger',
+                      desc: "Wendy's Burger",
+                      rate: '4.5',
+                    ),
                   );
                 }),
               ),
