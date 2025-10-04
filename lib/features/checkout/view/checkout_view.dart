@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hungry/core/constants/app_colors.dart';
@@ -5,6 +6,7 @@ import 'package:hungry/features/checkout/widget/checkout_details_widget.dart';
 import 'package:hungry/shared/custom_text.dart';
 
 import '../../../shared/custom_button.dart';
+import '../widget/success_dialog.dart';
 
 class CheckoutView extends StatefulWidget {
   const CheckoutView({super.key});
@@ -148,7 +150,26 @@ class _CheckoutViewState extends State<CheckoutView> {
                 CustomText(text: "\$ 18.9", size: 24),
               ],
             ),
-            CustomButton(text: "Pay Now", onTap: () {}),
+            CustomButton(
+              text: "Pay Now",
+              onTap: () {
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return Dialog(
+                      backgroundColor: Colors.transparent,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 20,
+                          vertical: 200.0,
+                        ),
+                        child: SuccessDialog(),
+                      ),
+                    );
+                  },
+                );
+              },
+            ),
           ],
         ),
       ),
