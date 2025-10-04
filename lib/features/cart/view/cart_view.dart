@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hungry/features/cart/widget/cart_item.dart';
+import 'package:hungry/features/checkout/view/checkout_view.dart';
 import 'package:hungry/shared/custom_button.dart';
 import 'package:hungry/shared/custom_text.dart';
 
@@ -79,7 +80,15 @@ class _CartViewState extends State<CartView> {
                 CustomText(text: "\$ 18.9", size: 24),
               ],
             ),
-            CustomButton(text: "Checkout", onTap: () {}),
+            CustomButton(
+              text: "Checkout",
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => CheckoutView()),
+                );
+              },
+            ),
           ],
         ),
       ),
