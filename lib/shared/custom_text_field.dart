@@ -28,6 +28,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      style: TextStyle(color: Colors.white),
       controller: widget.controller,
       validator: (value) {
         if (value == null || value.isEmpty) {
@@ -49,17 +50,17 @@ class _CustomTextFieldState extends State<CustomTextField> {
           borderSide: BorderSide(color: Colors.white),
         ),
         hintText: widget.hint,
-        fillColor: Colors.white,
+        hintStyle: TextStyle(color: Colors.white),
+        fillColor: Colors.transparent,
         filled: true,
         suffixIcon: widget.isPassword
             ? GestureDetector(
                 onTap: () {
                   setState(() {
                     _obscureText = !_obscureText;
-
                   });
                 },
-                child: Icon(CupertinoIcons.eye) ,
+                child: Icon(CupertinoIcons.eye, color: Colors.white),
               )
             : null,
       ),

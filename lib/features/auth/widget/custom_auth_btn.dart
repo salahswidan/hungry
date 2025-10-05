@@ -8,12 +8,15 @@ class CustomAuthBtn extends StatelessWidget {
     super.key,
     required this.text,
     required this.formKey,
-     this.onTap,
+    this.onTap,
+    this.color,
+    this.textColor,
   });
   final String text;
   final GlobalKey<FormState> formKey;
   final void Function()? onTap;
-
+  final Color? color;
+  final Color? textColor;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -22,14 +25,15 @@ class CustomAuthBtn extends StatelessWidget {
         width: double.infinity,
         height: 55,
         decoration: BoxDecoration(
-          color: Colors.white,
+          border: Border.all(color: Colors.white),
+          color: color ?? Colors.white,
           borderRadius: BorderRadius.circular(10),
         ),
         child: Center(
           child: CustomText(
             text: text,
             size: 15,
-            color: AppColors.primary,
+            color: textColor?? AppColors.primary,
             weight: FontWeight.bold,
           ),
         ),

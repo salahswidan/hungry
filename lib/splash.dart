@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 import 'package:hungry/core/constants/app_colors.dart';
+import 'package:hungry/features/auth/view/login_view.dart';
 import 'package:hungry/features/home/view/home_view.dart';
+import 'package:hungry/root.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -24,7 +26,7 @@ class _SplashViewState extends State<SplashView>
     Future.delayed(Duration(seconds: 1), () {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => HomeView()),
+        MaterialPageRoute(builder: (context) => LoginView()),
       );
     });
     super.initState();
@@ -51,15 +53,13 @@ class _SplashViewState extends State<SplashView>
                     Transform.scale(scale: scale.toDouble(), child: child),
                 child: SvgPicture.asset('assets/logo/logo.svg'),
               ),
-             const Spacer(),
+              const Spacer(),
               TweenAnimationBuilder<double>(
                 tween: Tween(begin: 40, end: 0),
                 duration: const Duration(milliseconds: 900),
                 curve: Curves.easeOutCubic,
-                builder: (context, value, child) => Transform.translate(
-                  offset: Offset(0, value),
-                  child: child,
-                ),
+                builder: (context, value, child) =>
+                    Transform.translate(offset: Offset(0, value), child: child),
                 child: Image.asset("assets/splash/splash.png"),
               ),
             ],
