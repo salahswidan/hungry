@@ -28,57 +28,60 @@ class _RootState extends State<Root> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: PageView(
-        controller: controller,
-        children: screens,
-        physics: NeverScrollableScrollPhysics(),
-      ),
-      bottomNavigationBar: Container(
-        padding: EdgeInsets.all(10),
-        decoration: BoxDecoration(
-          color: AppColors.primary,
-          borderRadius: BorderRadius.circular(30),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.shade400,
-              spreadRadius: 1,
-              blurRadius: 1,
-              offset: const Offset(0, 0),
-            ),
-          ],
+    return PopScope(
+      canPop: false,
+      child: Scaffold(
+        body: PageView(
+          controller: controller,
+          children: screens,
+          physics: NeverScrollableScrollPhysics(),
         ),
-        child: BottomNavigationBar(
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-          selectedItemColor: Colors.white,
-          unselectedItemColor: Colors.grey.shade500.withValues(alpha: 0.7),
-          type: BottomNavigationBarType.fixed,
-          currentIndex: currentScreen,
-          onTap: (index) {
-            setState(() {
-              currentScreen = index;
-              controller.jumpToPage(currentScreen);
-            });
-          },
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.home),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.cart),
-              label: 'Cart',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.local_restaurant_sharp),
-              label: 'Order History',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.person),
-              label: 'Profile',
-            ),
-          ],
+        bottomNavigationBar: Container(
+          padding: EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            color: AppColors.primary,
+            borderRadius: BorderRadius.circular(30),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.shade400,
+                spreadRadius: 1,
+                blurRadius: 1,
+                offset: const Offset(0, 0),
+              ),
+            ],
+          ),
+          child: BottomNavigationBar(
+            elevation: 0,
+            backgroundColor: Colors.transparent,
+            selectedItemColor: Colors.white,
+            unselectedItemColor: Colors.grey.shade500.withValues(alpha: 0.7),
+            type: BottomNavigationBarType.fixed,
+            currentIndex: currentScreen,
+            onTap: (index) {
+              setState(() {
+                currentScreen = index;
+                controller.jumpToPage(currentScreen);
+              });
+            },
+            items: const [
+              BottomNavigationBarItem(
+                icon: Icon(CupertinoIcons.home),
+                label: 'Home',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(CupertinoIcons.cart),
+                label: 'Cart',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.local_restaurant_sharp),
+                label: 'Order History',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(CupertinoIcons.person),
+                label: 'Profile',
+              ),
+            ],
+          ),
         ),
       ),
     );

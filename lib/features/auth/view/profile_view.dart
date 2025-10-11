@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hungry/core/constants/app_colors.dart';
+import 'package:hungry/features/auth/view/login_view.dart';
 import 'package:hungry/features/auth/widget/custom_user_text_field.dart';
 import 'package:hungry/shared/custom_button.dart';
 import 'package:hungry/shared/custom_text.dart';
@@ -121,20 +122,28 @@ class _ProfileViewState extends State<ProfileView> {
                   ],
                 ),
               ),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginView()),
+                  );
+                },
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
 
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(color: AppColors.primary),
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Row(
-                  children: [
-                    CustomText(text: "Logout", color: Colors.black),
-                    Gap(5),
-                    Icon(Icons.exit_to_app, color: AppColors.primary),
-                  ],
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border.all(color: AppColors.primary),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Row(
+                    children: [
+                      CustomText(text: "Logout", color: Colors.black),
+                      Gap(5),
+                      Icon(Icons.exit_to_app, color: AppColors.primary),
+                    ],
+                  ),
                 ),
               ),
             ],
