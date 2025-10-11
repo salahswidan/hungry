@@ -34,7 +34,7 @@ class _SplashViewState extends State<SplashView>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold( 
       backgroundColor: AppColors.primary,
       body: Center(
         child: AnimatedOpacity(
